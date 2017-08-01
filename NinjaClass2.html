@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <title>TITLE</title>
+    </head>
+    <body>
+        <h1>HELLO WORLD</h1>
+        <script>
+            function Ninja(name){
+                var speed = 3;
+                var strength = 3;
+                this.name = name;
+                this.health = 100;
+
+                this.sayName = function(){
+                    console.log('My ninja name is ' + this.name);
+                }
+                this.showStats = function(){
+                    console.log('Ninja: ' + this.name + ' Strength: ' + strength + ' Speed: ' + speed + ' Health: ' + this.health);
+                } 
+                this.drinkSake = function(){
+                    this.health += 10;
+                }
+                this.punch = function(ninja){
+                    if(ninja instanceof Ninja){
+                        ninja.health -= 5;
+                        console.log(ninja.name + ' was punched by ' + this.name + ' and lost 5 Health!');
+                    }
+                    else{
+                        console.log('Please enter a valid ninja to punch!');
+                    }
+                }
+                this.kick = function(ninja){
+                    if(ninja instanceof Ninja){
+                        ninja.health -= (15*strength);
+                        console.log(ninja.name + ' was kicked by ' + this.name + ' and lost 15 Health!');
+                    }
+                    else{
+                        console.log('Please enter a valid ninja to kick!');
+                    }
+                    
+                }
+            }  
+            var ninja1 = new Ninja('Erick');
+
+            var ninja2 = new Ninja('Tania');
+            ninja1.punch('ninja');
+            ninja2.showStats();
+            ninja1.punch(ninja2);
+            ninja2.showStats();
+            ninja1.kick(ninja2);
+            ninja2.showStats();
+            ninja1.kick('ninjaBoi');
+        </script>
+    </body>
+</html>
